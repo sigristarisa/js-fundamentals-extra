@@ -7,7 +7,9 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+const hoursToSeconds = (hours) => {
+  return hours * 60 * 60;
+}
 
 
 // MilesTravelled
@@ -22,8 +24,10 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
-
+const milesTravelled = (mph, min) => {
+  const hours = min / 60;
+  return Math.ceil(mph * hours)
+}
 
 // KilometersToMiles
 //
@@ -36,8 +40,9 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
-
+const kilometersToMiles = (km) => { 
+  return Math.round(km / 1.6);
+}
 
 // MakeSentence
 //
@@ -52,7 +57,13 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+const makeSentence = (str) => {
+  if(str.charAt(str.length - 1) === "." || str.charAt(str.length - 1) === "?" || str.charAt(str.length - 1) === "!") {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  } else {
+   return str.charAt(0).toUpperCase() + str.slice(1) + ".";
+  }
+}
 
 
 // FileExtension
@@ -66,7 +77,13 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+const fileExtension = (file) => {
+  if(file.includes(".")) {
+    return file.slice(-3);
+  } else {
+    return "";
+  }
+}
 
 
 // Range
@@ -79,7 +96,12 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+const range = (arr) => {
+  arr.sort((a, b) => {
+    return a - b;
+  });
+  return arr[arr.length - 1] - arr[0];
+}
 
 
 // CheckTransactions
@@ -99,6 +121,15 @@
 //
 // TODO: write code below
 
+const checkTransactions = (arr, balance, overdraft) => {
+const accountBalance = arr.reduce((num1, num2) => num1 + num2)
+if( balance - (-accountBalance) >= overdraft) {
+  return true;
+} else {
+  return false;
+}
+}
+
 
 
 // FilmsInGenre
@@ -113,32 +144,41 @@
 // with a reference to your function.
 //
 // TODO: write code below
-
+const filmsInGenre = (films, genre) => {
+  const filmArr = [];
+  for(let i = 0; i < films.length; i++) {
+    if (films[i].genres.includes(genre)) {
+      filmArr.push(films[i].name);
+    }
+  }
+  return filmArr;
+}
 
 
 // TODO: change undefined to be the name of the functions you defined
 module.exports = {
   //SecondsInHours
-  a: undefined,
+  a: hoursToSeconds,
 
   //MilesTravelled,
-  b: undefined,  
+  b: milesTravelled,  
 
   //KilometersToMiles,
-  c: undefined, 
+  c: kilometersToMiles, 
 
   //MakeSentence
-  d: undefined, 
+  d: makeSentence, 
 
   //FileExtension
-  e: undefined,
+  e: fileExtension,
 
   //Range
-  f: undefined,
+  f: range,
 
   //CheckTransactions
-  g: undefined,
+  g: checkTransactions,
 
   //FilmsInGenre
-  h: undefined,
+  h: filmsInGenre,
 }
+

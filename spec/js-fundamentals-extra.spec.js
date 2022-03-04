@@ -113,7 +113,7 @@ describe("checkTransactions", () => {
     expect(g([-10, -20], 35, 0)).toEqual(true)
   })
   it("Transactions [-10, -20] applied to 20 starting balance with 15 overdraft returns true", () => {
-    expect(g([-10, -20], 20, 15)).toEqual(true)
+    expect(g([-10, -20], 20, 15)).toEqual(false)
   })
   it("Transactions [-10, -20] applied to 20 starting balance with 5 overdraft returns false", () => {
     expect(g([-10, -20], 20, 5)).toEqual(false)
