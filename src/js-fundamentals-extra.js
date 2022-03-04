@@ -79,7 +79,7 @@ const makeSentence = (str) => {
 // TODO: write code below
 const fileExtension = (file) => {
   if(file.includes(".")) {
-    return file.slice(-3);
+    return file.substring(file.lastIndexOf(".")+1);
   } else {
     return "";
   }
